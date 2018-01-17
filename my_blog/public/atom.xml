@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fanming.shop/"/>
-  <updated>2018-01-16T09:49:54.897Z</updated>
+  <updated>2018-01-17T07:55:34.251Z</updated>
   <id>http://fanming.shop/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://fanming.shop/2018/01/17/git/"/>
+    <id>http://fanming.shop/2018/01/17/git/</id>
+    <published>2018-01-17T07:55:34.251Z</published>
+    <updated>2018-01-17T07:55:34.251Z</updated>
+    
+    <content type="html"><![CDATA[<p>hello</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;hello&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Python和微信之获取好友昵称并制作wordcloud</title>
@@ -115,6 +137,36 @@
     
     
       <category term="linux" scheme="http://fanming.shop/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>centos环境下使用uwsgi&amp;nginx部署flask</title>
+    <link href="http://fanming.shop/2017/03/08/%E9%83%A8%E7%BD%B2flask/"/>
+    <id>http://fanming.shop/2017/03/08/部署flask/</id>
+    <published>2017-03-08T07:50:23.000Z</published>
+    <updated>2018-01-17T09:45:45.600Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>安装Python虚拟环境</p><pre><code>在centos中，系统已经集成了Python环境，直接可以使用，不用手动安装。    1）pip install virtualenv             进行这一步要保证pip可以使用    若在此报错gcc，则需要安装python-devel    2）virtualenv   name    ——————创建虚拟环境    3）source name/activate ————激活虚拟环境    4）根据flask项目中需要的Python包安装</code></pre></li><li><p>安装uwsgi</p><pre><code>1）pip install uwsgi2）在项目的根目录创建文件名为config.ini文件，用于启动uwsgi</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[uwsgi]</span><br><span class="line"></span><br><span class="line">socket = 127.0.0.1:5001     //启动程序时所使用的地址和端口，通常在本地运行flask项目，</span><br><span class="line">                            //地址和端口是127.0.0.1:5000,</span><br><span class="line">                            //不过在服务器上是通过uwsgi设置端口，通过uwsgi来启动项目，</span><br><span class="line">                            //也就是说启动了uwsgi，也就启动了项目。</span><br><span class="line">chdir = /root/pyenv/AjaxExample    //项目目录</span><br><span class="line"></span><br><span class="line">wsgi-file = run.py      //flask程序的启动文件，通常在本地是通过运行  </span><br><span class="line">                        //python run.py 来启动项目的</span><br><span class="line">                        </span><br><span class="line">callable = app      //程序内启用的application变量名</span><br><span class="line"></span><br><span class="line">processes = 4     //处理器个数</span><br><span class="line"></span><br><span class="line">threads = 2     //线程个数</span><br><span class="line"></span><br><span class="line">stats = 127.0.0.1:9191      //获取uwsgi统计信息的服务地址 用于和nginx通信</span><br></pre></td></tr></table></figure></li><li><p>安装nginx</p><pre><code>   *nginx的一些命令   *启动： nginx   *停止： nginx -s -stop   *强制停止： pkill -9 nginx   *查看nginx是否应用配置文件: nginx -t   *查看版本： nginx -v1）nginx 可以使用yum直接安装        yum install yum-fastestmirror————安装源        yum install nginx2）配置nginx        配置文件默认在/etc/nginx/nginx.conf</code></pre></li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">user nginx;</span><br><span class="line">worker_processes auto;</span><br><span class="line">error_log /var/log/nginx/error.log;     //错误日志</span><br><span class="line">pid /run/nginx.pid;</span><br><span class="line">include /usr/share/nginx/modules/*.conf;</span><br><span class="line">events &#123;</span><br><span class="line">    worker_connections 1024;</span><br><span class="line">&#125;</span><br><span class="line">http &#123;</span><br><span class="line">    log_format  main  &apos;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &apos;</span><br><span class="line">                      &apos;$status $body_bytes_sent &quot;$http_referer&quot; &apos;</span><br><span class="line">                      &apos;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&apos;;</span><br><span class="line">    access_log  /var/log/nginx/access.log  main;</span><br><span class="line">    sendfile            on;</span><br><span class="line">    tcp_nopush          on;</span><br><span class="line">    tcp_nodelay         on;</span><br><span class="line">    keepalive_timeout   65;</span><br><span class="line">    types_hash_max_size 2048;</span><br><span class="line">    include             /etc/nginx/mime.types;</span><br><span class="line">    default_type        application/octet-stream;</span><br><span class="line">    # Load modular configuration files from the /etc/nginx/conf.d directory.</span><br><span class="line">    # See http://nginx.org/en/docs/ngx_core_module.html#include</span><br><span class="line">    # for more information.</span><br><span class="line">    include /etc/nginx/conf.d/*.conf;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen       80 default_server;  //web服务端口</span><br><span class="line">        listen       [::]:80 default_server;  </span><br><span class="line">        server_name  39.106.56.137;  //公网ip</span><br><span class="line">        root         /usr/share/nginx/html;</span><br><span class="line">        # Load configuration files for the default server block.</span><br><span class="line">        include /etc/nginx/default.d/*.conf;</span><br><span class="line">        location / &#123;</span><br><span class="line">include        uwsgi_params;</span><br><span class="line">                uwsgi_pass     127.0.0.1:5001;    //需要和uwsgi的配置文件里socket项的地址</span><br><span class="line">                                                  //相同,否则无法让uwsgi接收到请求。</span><br><span class="line">                uwsgi_param UWSGI_PYHOME /root/pyenv;  //python的位置(虚拟环境下)</span><br><span class="line">                uwsgi_param UWSGI_CHDIR /root/pyenv/AjaxExample;   //项目根目录</span><br><span class="line">                uwsgi_param UWSGI_SCRIPT run:app;    //启动项目的主程序(在本地上运行</span><br><span class="line">                                                     //这个主程序可以在flask内置的</span><br><span class="line">                                                     //服务器上访问你的项目)</span><br><span class="line">        &#125;</span><br><span class="line">        error_page 404 /404.html;</span><br><span class="line">            location = /40x.html &#123;</span><br><span class="line">        &#125;</span><br><span class="line">        error_page 500 502 503 504 /50x.html;</span><br><span class="line">            location = /50x.html &#123;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p> 至此，各项配置已经完成，不出意外的话，你就可以在浏览器中访问你的网站了</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;安装Python虚拟环境&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;在centos中，系统已经集成了Python环境，直接可以使用，不用手动安装。
+
+    1）pip install virtualenv             进行这一步要保证pip可以使用
+  
+      
+    
+    </summary>
+    
+      <category term="linux" scheme="http://fanming.shop/categories/linux/"/>
+    
+    
+      <category term="flask" scheme="http://fanming.shop/tags/flask/"/>
     
   </entry>
   
