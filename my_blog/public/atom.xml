@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Fxj</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://fanming.shop/"/>
+  <updated>2018-01-16T09:49:54.897Z</updated>
+  <id>http://fanming.shop/</id>
+  
+  <author>
+    <name>FanMing</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python和微信之获取好友昵称并制作wordcloud</title>
+    <link href="http://fanming.shop/2018/01/16/hexo_config/"/>
+    <id>http://fanming.shop/2018/01/16/hexo_config/</id>
+    <published>2018-01-16T09:49:54.921Z</published>
+    <updated>2018-01-16T09:49:54.897Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近看到网上有人用Python获取微信的一些信息，感觉挺有意思，对于我一个Python刚入门的人来说，正需要一些代码片段来激起我的兴趣，所以自己也写了一些，废话不多说，直接上代码！！！</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">coding:utf-8</span><br><span class="line">微信好友昵称WordCloud</span><br><span class="line">import itchat</span><br><span class="line">import re</span><br><span class="line">import os</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">from wordcloud import WordCloud, ImageColorGenerator</span><br><span class="line">import numpy as np</span><br><span class="line">import PIL.Image as Image</span><br><span class="line">import jieba</span><br><span class="line">import time</span><br><span class="line">#以上是我用到的一些库，这些根据个人不同需要安装某些库</span><br><span class="line"></span><br><span class="line">#运行到此处会自动生成一个二维码，打开手机微信，扫一扫即可登录</span><br><span class="line">itchat.login()</span><br><span class="line">friends = itchat.get_friends(update=True)[0:]</span><br><span class="line">tList = []</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">for i in friends:</span><br><span class="line">#用正则表达式过滤掉 span ，class，emoji。NickName表示微信好友的昵称；</span><br><span class="line">signature = i[&quot;NickName&quot;].strip().replace(&quot;span&quot;,&quot;&quot;).replace(&quot;class&quot;,&quot;&quot;).replace(&quot;emoji&quot;,&quot;&quot;)</span><br><span class="line">rep = re.compile(&quot;1f\d.+&quot;)</span><br><span class="line">signature = rep.sub(&quot;&quot;,signature)</span><br><span class="line">print signature</span><br><span class="line">tList.append(signature)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#拼接字符串</span><br><span class="line">text = &quot;&quot;.join(tList)</span><br><span class="line"></span><br><span class="line">#jieba分词</span><br><span class="line">wordlist_jieba = jieba.cut(text,cut_all=True)</span><br><span class="line">wl_space_split = &quot; &quot;.join(wordlist_jieba)</span><br><span class="line"></span><br><span class="line">#wordcloud</span><br><span class="line">d = os.path.dirname(__file__)</span><br><span class="line">alice_coloring = np.array(Image.open(os.path.join(d,&quot;hot.png&quot;)))#设置一个背景图片，文章中会附上</span><br><span class="line">my_wordcloud = WordCloud(background_color=&quot;white&quot;,max_words=2000,mask=alice_coloring,max_font_size=37, random_state=42,</span><br><span class="line">font_path=&quot;./handan.ttf&quot;).generate(wl_space_split)</span><br><span class="line">#此处使用的字体一定是支持中文的字体，当然，如果你确定你好友的昵称都是英文，那么请忽略，字体的路径可以是相对路径，也可以是你的系统字体</span><br><span class="line"></span><br><span class="line">image_colors = ImageColorGenerator(alice_coloring)</span><br><span class="line">plt.imshow(my_wordcloud.recolor(color_func=image_colors))</span><br><span class="line">plt.imshow(my_wordcloud)</span><br><span class="line">plt.axis(&quot;off&quot;)</span><br><span class="line">plt.show()</span><br><span class="line">time.sleep(3)</span><br><span class="line">plt.close()#图片关闭后将图片发送至手机,保存图片，并发送至手机</span><br><span class="line">my_wordcloud.to_file(os.path.join(d, &quot;wechat_cloud.png&quot;))</span><br><span class="line">itchat.send_image(&quot;wechat_cloud.png&quot;, &apos;filehelper&apos;)</span><br></pre></td></tr></table></figure><p>至此，打开你的手机，进入到文件传输助手，你会收到一张图片，这就是使用微信好友昵称制作的词云，下面附上一张我本人的<br><img src="http://img.blog.csdn.net/20170721154128645?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMzU2MjYyNQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170721154156691?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMzU2MjYyNQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;最近看到网上有人用Python获取微信的一些信息，感觉挺有意思，对于我一个Python刚入门的人来说，正需要一些代码片段来激起我的兴趣，所以自己也写了一些，废话不多说，直接上代码！！！&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://fanming.shop/categories/python/"/>
+    
+    
+      <category term="wordcloud" scheme="http://fanming.shop/tags/wordcloud/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python爬虫爬取ajax加载的动态内容</title>
+    <link href="http://fanming.shop/2017/11/19/python_pachong/"/>
+    <id>http://fanming.shop/2017/11/19/python_pachong/</id>
+    <published>2017-11-19T15:20:00.000Z</published>
+    <updated>2018-01-17T02:29:35.568Z</updated>
+    
+    <content type="html"><![CDATA[<p>在使用python爬取网页内容的时候，发现请求到的内容和浏览器开发者工具上看到的不一样，<br>经过一番百度，才发现该内容是使用ajax加载的内容：<br><img src="http://img.blog.csdn.net/20171231133004429?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMzU2MjYyNQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="浏览器上看到的数据"></p><p><img src="http://img.blog.csdn.net/20171231133037220?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMzU2MjYyNQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="python请求到的数据"></p><p>两处相差甚远。</p><p>最终在这里找到ajax请求的url<br><img src="http://img.blog.csdn.net/20171231133543138?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMzU2MjYyNQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>使用此地址完美请求到缺失的数据<br><img src="http://img.blog.csdn.net/20171231133956311?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMzU2MjYyNQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="请求到一组json数据"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在使用python爬取网页内容的时候，发现请求到的内容和浏览器开发者工具上看到的不一样，&lt;br&gt;经过一番百度，才发现该内容是使用ajax加载的内容：&lt;br&gt;&lt;img src=&quot;http://img.blog.csdn.net/20171231133004429?waterm
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://fanming.shop/categories/python/"/>
+    
+    
+      <category term="python" scheme="http://fanming.shop/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python使用爬虫获取json格式的网页，输出以及写入文件乱码</title>
+    <link href="http://fanming.shop/2017/11/19/pachong_luanma/"/>
+    <id>http://fanming.shop/2017/11/19/pachong_luanma/</id>
+    <published>2017-11-19T14:13:00.000Z</published>
+    <updated>2018-01-17T02:27:48.042Z</updated>
+    
+    <content type="html"><![CDATA[<p>解决python使用爬虫获取json格式的网页，输出以及写入文件乱码的情况</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import codecs</span><br><span class="line"></span><br><span class="line">resp = requests.get(url,headers=headers)</span><br><span class="line">result = json.dumps(resp.json(),ensure_ascii=False)</span><br><span class="line">#若不指定ensure_ascii=False，输出的是中文的ascii 字符码，而不是真正的中文。</span><br><span class="line">#这是因为json.dumps 序列化时对中文默认使用的ascii编码.想输出真正的中文需要指定ensure_ascii=False：</span><br><span class="line"></span><br><span class="line">file1 = codecs.open(date+&quot;liujiqian.txt&quot;,&apos;a&apos;,&apos;utf-8&apos;)</span><br><span class="line">#将获取到的内容写到文件，以指定的编码方式打开文件，这样才能正常写入中文</span><br><span class="line">file1.write(result)</span><br><span class="line">file1.close()</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;解决python使用爬虫获取json格式的网页，输出以及写入文件乱码的情况&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://fanming.shop/categories/python/"/>
+    
+    
+      <category term="scarpy" scheme="http://fanming.shop/tags/scarpy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux中使用touch修改文件的时间</title>
+    <link href="http://fanming.shop/2017/04/02/linux_touch_time/"/>
+    <id>http://fanming.shop/2017/04/02/linux_touch_time/</id>
+    <published>2017-04-02T11:04:11.000Z</published>
+    <updated>2018-01-17T03:04:39.101Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="liunx中使用touch命令更改文件的时间"><a href="#liunx中使用touch命令更改文件的时间" class="headerlink" title="liunx中使用touch命令更改文件的时间"></a>liunx中使用touch命令更改文件的时间</h2><ol><li><p>首先介绍下Linux系统中文件的三个时间</p><pre><code>1）modification time (mtime,修改时间)：这个时间指的是文件内容修改的时间，而不是文件属性的修改，当数据内容修改时，这个时间就会改变，用命令ls -l默认显示的就是这个时间。2）status time （ctime,状态时间）：当一个文件的状态改变时，这个时间就会改变，例如更改了文件的权限与属性等，它就会改变。3）access time （atime,访问时间）：当读取文件内容时，就会更改这个时间，例如使用cat 去读取/etc/man.config,那么该文件的atime就会改变。</code></pre></li><li><p>touch的用法为：</p><pre><code>touch [-actmd] 文件参数：-a:仅修改access time-c:仅修改时间而不建立文件-t:后面可以接时间，格式为：[[CC]YY]MMDDhhmm [.SS]            *该参数修改的是访问时间和修改时间*       CC - 年份的前两位        YY - 年份的后两位        MM - 月份 [01-12]       DD - 日期 [01-31]       hh - 时 [00-23]       mm - 分 [00-59]       SS - 秒 [00-61]</code></pre></li></ol><pre><code>-m:仅修改mtime-d:后面可以接日期，也可以使用--date=&quot;日期或时间&quot;</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;liunx中使用touch命令更改文件的时间&quot;&gt;&lt;a href=&quot;#liunx中使用touch命令更改文件的时间&quot; class=&quot;headerlink&quot; title=&quot;liunx中使用touch命令更改文件的时间&quot;&gt;&lt;/a&gt;liunx中使用touch命令更改文件的
+      
+    
+    </summary>
+    
+      <category term="linux" scheme="http://fanming.shop/categories/linux/"/>
+    
+    
+      <category term="linux" scheme="http://fanming.shop/tags/linux/"/>
+    
+  </entry>
+  
+</feed>
