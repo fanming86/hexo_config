@@ -3,7 +3,7 @@
 
 date: 2017-3-8 15:50:23
 title: centos环境下使用uwsgi&nginx部署flask
-tags: flask
+tags: [flask,nginx]
 categories: linux
 
 ---

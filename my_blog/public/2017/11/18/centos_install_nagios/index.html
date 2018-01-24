@@ -16,23 +16,25 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Python和微信之获取好友昵称并制作wordcloud | FanMing</title>
-  <meta name="description" content="最近看到网上有人用Python获取微信的一些信息，感觉挺有意思，对于我一个Python刚入门的人来说，正需要一些代码片段来激起我的兴趣，所以自己也写了一些，废话不多说，直接上代码！！！ 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152coding:utf-8">
-<meta name="keywords" content="wordcloud">
+  <title>centos7安装nagios监控服务 | FanMing</title>
+  <meta name="description" content="1. nagios简介Nagios是一款开源的免费网络监视工具，能有效监控Windows、Linux和Unix的主机状态，交换机路由器等网络设置，打印机等。在系统或服务状态异常时发出邮件或短信报警第一时间通知网站运维人员，在状态恢复后发出正常的邮件或短信通知。  Nagios 可以监控的功能有： 1、监控网络服务（SMTP、POP3、HTTP、NNTP、PING等）；  2、监控主机资源（处理器负">
+<meta name="keywords" content="nagios,centos">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python和微信之获取好友昵称并制作wordcloud">
-<meta property="og:url" content="http://fanming.shop/2018/01/16/hexo_config/index.html">
+<meta property="og:title" content="centos7安装nagios监控服务">
+<meta property="og:url" content="http://fanming.shop/2017/11/18/centos_install_nagios/index.html">
 <meta property="og:site_name" content="Fxj">
-<meta property="og:description" content="最近看到网上有人用Python获取微信的一些信息，感觉挺有意思，对于我一个Python刚入门的人来说，正需要一些代码片段来激起我的兴趣，所以自己也写了一些，废话不多说，直接上代码！！！ 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152coding:utf-8">
-<meta property="og:image" content="http://img.blog.csdn.net/20170721154128645?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMzU2MjYyNQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170721154156691?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMzU2MjYyNQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2018-01-16T09:49:54.897Z">
+<meta property="og:description" content="1. nagios简介Nagios是一款开源的免费网络监视工具，能有效监控Windows、Linux和Unix的主机状态，交换机路由器等网络设置，打印机等。在系统或服务状态异常时发出邮件或短信报警第一时间通知网站运维人员，在状态恢复后发出正常的邮件或短信通知。  Nagios 可以监控的功能有： 1、监控网络服务（SMTP、POP3、HTTP、NNTP、PING等）；  2、监控主机资源（处理器负">
+<meta property="og:image" content="http://img.blog.csdn.net/20180123112026072?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMzU2MjYyNQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20180123104741286?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMzU2MjYyNQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20180123104930999?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMzU2MjYyNQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20180123105742740?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMzU2MjYyNQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2018-01-23T08:36:01.039Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python和微信之获取好友昵称并制作wordcloud">
-<meta name="twitter:description" content="最近看到网上有人用Python获取微信的一些信息，感觉挺有意思，对于我一个Python刚入门的人来说，正需要一些代码片段来激起我的兴趣，所以自己也写了一些，废话不多说，直接上代码！！！ 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152coding:utf-8">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20170721154128645?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMzU2MjYyNQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta name="twitter:title" content="centos7安装nagios监控服务">
+<meta name="twitter:description" content="1. nagios简介Nagios是一款开源的免费网络监视工具，能有效监控Windows、Linux和Unix的主机状态，交换机路由器等网络设置，打印机等。在系统或服务状态异常时发出邮件或短信报警第一时间通知网站运维人员，在状态恢复后发出正常的邮件或短信通知。  Nagios 可以监控的功能有： 1、监控网络服务（SMTP、POP3、HTTP、NNTP、PING等）；  2、监控主机资源（处理器负">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20180123112026072?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMzU2MjYyNQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://fanming.shop/2018/01/16/hexo_config/index.html">
+  <link rel="canonical" href="http://fanming.shop/2017/11/18/centos_install_nagios/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Fxj" type="application/atom+xml">
   
@@ -356,14 +358,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-hexo_config" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-centos_install_nagios" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Python和微信之获取好友昵称并制作wordcloud
+      centos7安装nagios监控服务
     </h1>
   
 
@@ -371,20 +373,20 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2018/01/16/hexo_config/" class="article-date">
-	  <time datetime="2018-01-16T09:49:54.921Z" itemprop="datePublished">2018-01-16</time>
+	<a href="/2017/11/18/centos_install_nagios/" class="article-date">
+	  <time datetime="2017-11-18T09:23:56.000Z" itemprop="datePublished">2017-11-18</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/python/">python</a>
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
   </span>
 
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/wordcloud/">wordcloud</a>
+	<a class="article-tag-link" href="/tags/centos/">centos</a>, <a class="article-tag-link" href="/tags/nagios/">nagios</a>
   </span>
 
 
@@ -399,25 +401,62 @@
 
 	<span class="article-read hidden-xs">
     	<i class="icon icon-eye-fill" aria-hidden="true"></i>
-    	<span id="/2018/01/16/hexo_config/" class="leancloud_visitors"  data-flag-title="Python和微信之获取好友昵称并制作wordcloud">0</span>
+    	<span id="/2017/11/18/centos_install_nagios/" class="leancloud_visitors"  data-flag-title="centos7安装nagios监控服务">0</span>
     </span>
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/01/16/hexo_config/#comments" class="article-comment-link">Comments</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2017/11/18/centos_install_nagios/#comments" class="article-comment-link">Comments</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 514(words)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1,273(words)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 2(minutes)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 6(minutes)</span>
 	
 
       </div>
     </div>
     <div class="article-entry markdown-body" itemprop="articleBody">
       
-        <p>最近看到网上有人用Python获取微信的一些信息，感觉挺有意思，对于我一个Python刚入门的人来说，正需要一些代码片段来激起我的兴趣，所以自己也写了一些，废话不多说，直接上代码！！！</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">coding:utf-8</span><br><span class="line">微信好友昵称WordCloud</span><br><span class="line">import itchat</span><br><span class="line">import re</span><br><span class="line">import os</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">from wordcloud import WordCloud, ImageColorGenerator</span><br><span class="line">import numpy as np</span><br><span class="line">import PIL.Image as Image</span><br><span class="line">import jieba</span><br><span class="line">import time</span><br><span class="line">#以上是我用到的一些库，这些根据个人不同需要安装某些库</span><br><span class="line"></span><br><span class="line">#运行到此处会自动生成一个二维码，打开手机微信，扫一扫即可登录</span><br><span class="line">itchat.login()	</span><br><span class="line">friends = itchat.get_friends(update=True)[0:]</span><br><span class="line">tList = []</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">for i in friends:</span><br><span class="line">	#用正则表达式过滤掉 span ，class，emoji。NickName表示微信好友的昵称；</span><br><span class="line">	signature = i[&quot;NickName&quot;].strip().replace(&quot;span&quot;,&quot;&quot;).replace(&quot;class&quot;,&quot;&quot;).replace(&quot;emoji&quot;,&quot;&quot;)</span><br><span class="line">	rep = re.compile(&quot;1f\d.+&quot;)</span><br><span class="line">	signature = rep.sub(&quot;&quot;,signature)</span><br><span class="line">	print signature</span><br><span class="line">	tList.append(signature)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#拼接字符串</span><br><span class="line">text = &quot;&quot;.join(tList)</span><br><span class="line"></span><br><span class="line">#jieba分词</span><br><span class="line">wordlist_jieba = jieba.cut(text,cut_all=True)</span><br><span class="line">wl_space_split = &quot; &quot;.join(wordlist_jieba)</span><br><span class="line"></span><br><span class="line">#wordcloud</span><br><span class="line">d = os.path.dirname(__file__)</span><br><span class="line">alice_coloring = np.array(Image.open(os.path.join(d,&quot;hot.png&quot;)))	#设置一个背景图片，文章中会附上</span><br><span class="line">my_wordcloud = WordCloud(background_color=&quot;white&quot;,max_words=2000,mask=alice_coloring,max_font_size=37, random_state=42,</span><br><span class="line">font_path=&quot;./handan.ttf&quot;).generate(wl_space_split)	</span><br><span class="line">#此处使用的字体一定是支持中文的字体，当然，如果你确定你好友的昵称都是英文，那么请忽略，字体的路径可以是相对路径，也可以是你的系统字体</span><br><span class="line"></span><br><span class="line">image_colors = ImageColorGenerator(alice_coloring)</span><br><span class="line">plt.imshow(my_wordcloud.recolor(color_func=image_colors))</span><br><span class="line">plt.imshow(my_wordcloud)</span><br><span class="line">plt.axis(&quot;off&quot;)</span><br><span class="line">plt.show()</span><br><span class="line">time.sleep(3)</span><br><span class="line">plt.close()	#图片关闭后将图片发送至手机,保存图片，并发送至手机</span><br><span class="line">my_wordcloud.to_file(os.path.join(d, &quot;wechat_cloud.png&quot;))</span><br><span class="line">itchat.send_image(&quot;wechat_cloud.png&quot;, &apos;filehelper&apos;)</span><br></pre></td></tr></table></figure>
-<p>至此，打开你的手机，进入到文件传输助手，你会收到一张图片，这就是使用微信好友昵称制作的词云，下面附上一张我本人的<br><img src="http://img.blog.csdn.net/20170721154128645?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMzU2MjYyNQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170721154156691?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMzU2MjYyNQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+        <h2 id="1-nagios简介"><a href="#1-nagios简介" class="headerlink" title="1. nagios简介"></a><strong>1. nagios简介</strong></h2><pre><code>Nagios是一款开源的免费网络监视工具，能有效监控Windows、Linux和Unix的主机状态，交换机路由器等网络设置，打印机等。在系统或服务状态异常时发出邮件或短信报警第一时间通知网站运维人员，在状态恢复后发出正常的邮件或短信通知。
+
+Nagios 可以监控的功能有：
+1、监控网络服务（SMTP、POP3、HTTP、NNTP、PING等）； 
+2、监控主机资源（处理器负荷、磁盘利用率等）；
+3、简单地插件设计使得用户可以方便地扩展自己服务的检测方法；
+4、并行服务检查机制；
+5、具备定义网络分层结构的能力，用&quot;parent&quot;主机定义来表达网络主机间的关系，这种关系可被用来发现和明晰主机宕机或不可达状态；
+6、当服务或主机问题产生与解决时将告警发送给联系人（通过EMail、短信、用户定义方式）；
+7、具备定义事件句柄功能，它可以在主机或服务的事件发生时获取更多问题定位；
+8、自动的日志回滚；
+9、可以支持并实现对主机的冗余监控；
+10、可选的WEB界面用于查看当前的网络状态、通知和故障历史、日志文件等。
+</code></pre><h2 id="2-安装Nagios基础支持套件和添加用户"><a href="#2-安装Nagios基础支持套件和添加用户" class="headerlink" title="2. 安装Nagios基础支持套件和添加用户"></a><strong>2. 安装Nagios基础支持套件和添加用户</strong></h2><p>1).安装套件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install gcc glibc glibc-common gd gd-devel xinetd openssl-devel</span><br></pre></td></tr></table></figure></p>
+<p>2).创建nagios用户和用户组(先进行该步骤，不然编译nagios时会报错)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">useradd -s /sbin/nologin nagios   #创建nagios用户，设置该用户无法登录</span><br><span class="line">mkdir /usr/local/nagios   </span><br><span class="line">chown -R nagios.nagios /usr/local/nagios   #设置目录权限</span><br></pre></td></tr></table></figure></p>
+<p>3).安装httpd和php<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install httpd*    ##安装Web服务器Apache相关服务,nagios提供了web监控界面，通过web界面可以看到被监控主机运行状态</span><br><span class="line">yum install php*      ##安装PHP相关服务</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-下载并编译安装Nagios"><a href="#3-下载并编译安装Nagios" class="headerlink" title="3. 下载并编译安装Nagios"></a><strong>3. 下载并编译安装Nagios</strong></h2><p>1).下载并解压nagios<br>可以前往 <a href="https://www.nagios.org" target="_blank" rel="noopener">https://www.nagios.org</a> 获取最新的软件包，这里以 Nagios 核心 3.4.3 为例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://assets.nagios.com/downloads/nagioscore/releases/nagios-3.4.3.tar.gz </span><br><span class="line">tar -zxvf nagios-3.4.3.tar.gz </span><br><span class="line">cd nagios   #编译安装nagios</span><br></pre></td></tr></table></figure></p>
+<p>2).编译安装nagios<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/usr/local/nagios</span><br><span class="line">make all   ##中间如有选择，直接A</span><br><span class="line">make install    ##安装主程序，CGI和HTML文件</span><br><span class="line">make install-init   ##在/etc/rc.d/init.d安装启动脚本</span><br><span class="line">make install-config    ##安装示例配置文件</span><br><span class="line">make install-commandmode    ##配置目录权限</span><br></pre></td></tr></table></figure></p>
+<p>3).配置自启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chkconfig --add nagios   ##增加nagios为系统服务</span><br><span class="line">chkconfig --level 35 nagios on  ##设置nagios在运行级别3、5的情况下为开启状态</span><br><span class="line">chkconfig --list nagios   ##列出nagios服务设置详情</span><br></pre></td></tr></table></figure></p>
+<p>4).验证程序是否配置正确<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://img.blog.csdn.net/20180123112026072?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMzU2MjYyNQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h2 id="4-安装Nagios插件"><a href="#4-安装Nagios插件" class="headerlink" title="4. 安装Nagios插件"></a><strong>4. 安装Nagios插件</strong></h2><p>1).下载nagios-plugins<br>可以前往 <a href="https://www.nagios.org" target="_blank" rel="noopener">https://www.nagios.org</a> 获取最新的软件包，这里以 插件 2.0.3 为例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget http://nagios-plugins.org/download/nagios-plugins-2.0.3.tar.gz  ##下载nagios-plugins</span><br><span class="line">tar -zxvf nagios-plugins-2.0.3.tar.gz   ##解压nagios-plugins</span><br><span class="line">cd nagios-plugins-2.0.3</span><br></pre></td></tr></table></figure></p>
+<p>2).编译安装nagios-plugins</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/usr/local/nagios</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<p>3).下载nagios-snmp-plugins</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget http://nagios.manubulon.com/nagios-snmp-plugins.1.1.1.tgz </span><br><span class="line">tar -zxvf nagios-snmp-plugins.1.1.1.tgz </span><br><span class="line">cd nagios-plugins-2.0.3/</span><br></pre></td></tr></table></figure>
+<p>4).编译安装nagios-snmp-plugins</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install perl-CPAN   ##yum安装Perl-CPAN，CPAN是Perl软件收藏库，收集了大量有用的Perl模块(modules)及其相关的文件。nagios-snmp-plugins是一套用Perl编写的通过SNMP方式监控主机的插件程序，因此需要先安装perl-CPAN</span><br><span class="line">perl -MCPAN -e shell</span><br><span class="line">cpan[1]&gt; install Net::SNMP</span><br></pre></td></tr></table></figure>
+<h2 id="5-配置httpd"><a href="#5-配置httpd" class="headerlink" title="5. 配置httpd"></a><strong>5. 配置httpd</strong></h2><p> 1).    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/httpd/conf/httpd.conf</span><br><span class="line">将</span><br><span class="line">User apache </span><br><span class="line">Group apache</span><br></pre></td></tr></table></figure>
+<pre><code>修改为如下内容：
+</code></pre><p><img src="http://img.blog.csdn.net/20180123104741286?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMzU2MjYyNQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>2).在如下位置添加index.php<br><img src="http://img.blog.csdn.net/20180123104930999?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMzU2MjYyNQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="fanming.shop"></p>
+<p>3).配置nagios.conf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd nagios/       #nagios 解压后的目录</span><br><span class="line">make install-webconf    ##安装nagios的web接口,会在/etc/httpd/conf.d目录中创建nagios.conf文件</span><br><span class="line">vim /etc/httpd/conf.d/nagios.conf</span><br></pre></td></tr></table></figure></p>
+<pre><code>将22行和39行附近的htpasswd.user改为htpasswd（注:也可不进行更改，但在下部中要加全路径名）
+</code></pre><p><img src="http://img.blog.csdn.net/20180123105742740?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMzU2MjYyNQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="fanming.shop"></p>
+<p>4).创建nagios验证文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">htpasswd -c /usr/local/nagios/etc/htpasswd admin  ##创建nagios登录web界面的用户名和密码</span><br><span class="line">cat /usr/local/nagios/etc/htpasswd    ##查看认证文件的内容</span><br></pre></td></tr></table></figure></p>
+<p>5).关闭SELinux和防火墙：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">a、临时关闭（不用重启机器）：</span><br><span class="line">setenforce 0    ##设置SELinux 成为permissive模式  （关闭SELinux）</span><br><span class="line">setenforce 1    ##设置SELinux 成为enforcing模式    (开启SELinux）</span><br><span class="line">b、修改配置文件需要重启机器：</span><br><span class="line">vi /etc/selinux/config</span><br><span class="line">将SELINUX=enforcing 改为SELINUX=disabled</span><br><span class="line">需重启机器</span><br><span class="line">c、可自己做策略开放相应端口，这里我直接关闭:</span><br><span class="line">systemctl status firewalld.service       ##查看防火墙状态</span><br><span class="line">systemctl stop firewalld.service         ##关闭防火墙</span><br></pre></td></tr></table></figure></p>
+<p>6).启用服务并进入nagios<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl start httpd.service</span><br><span class="line">systemctl start snmpd.service</span><br><span class="line">systemctl start nagios.service</span><br></pre></td></tr></table></figure></p>
+<p><strong>至此，就可以访问<a href="http://localhost/nagios" target="_blank" rel="noopener">http://localhost/nagios</a> 访问web界面了</strong> </p>
 
       
     </div>
@@ -427,7 +466,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://fanming.shop/2018/01/16/hexo_config/" title="Python和微信之获取好友昵称并制作wordcloud" target="_blank" rel="external">http://fanming.shop/2018/01/16/hexo_config/</a>
+      <a href="http://fanming.shop/2017/11/18/centos_install_nagios/" title="centos7安装nagios监控服务" target="_blank" rel="external">http://fanming.shop/2017/11/18/centos_install_nagios/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -475,9 +514,13 @@
   
   <ul class="pager pull-left">
     
+    <li class="prev">
+      <a href="/2017/11/19/pachong_luanma/" title="python使用爬虫获取json格式的网页，输出以及写入文件乱码"><i class="icon icon-angle-left" aria-hidden="true"></i>&nbsp;&nbsp;Newer</a>
+    </li>
+    
     
     <li class="next">
-      <a href="/2017/11/19/python_pachong/" title="python爬虫爬取ajax加载的动态内容">Older&nbsp;&nbsp;<i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2017/04/02/linux_touch_time/" title="linux中使用touch修改文件的时间">Older&nbsp;&nbsp;<i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
   </ul>

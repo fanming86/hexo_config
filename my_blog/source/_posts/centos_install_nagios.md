@@ -1,7 +1,7 @@
 ---
 
 title: centos7安装nagios监控服务
-tags: nagios
+tags: [nagios,centos]
 categories: Linux
 date : 2017-11-18 17:23:56
 
